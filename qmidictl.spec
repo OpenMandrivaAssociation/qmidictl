@@ -1,17 +1,22 @@
 Name:		qmidictl
 Version:	0.6.1
-Release:	%mkrel 1
+Release:	1
 Summary:	A MIDI Remote Controller via UDP/IP Multicast
 License:	GPLv2+
 Group:		Sound/Utilities
 URL:		https://qmidictl.sourceforge.io/
 Source0:	http://downloads.sourceforge.net/qmidictl/%{name}-%{version}.tar.gz
-Patch0:		qmidictl-0.5.1-mga-fix-install-path.patch
+
 BuildRequires:	desktop-file-utils
 BuildRequires:	qttools5
 BuildRequires:	pkgconfig(Qt5Core)
 BuildRequires:	pkgconfig(Qt5Gui)
 BuildRequires:	pkgconfig(Qt5Widgets)
+BuildRequires:	qt5-qttools
+BuildRequires:  qt5-qtchooser
+BuildRequires:	qt5-linguist
+BuildRequires:	qt5-linguist-tools
+BuildRequires:  qmake5
 
 %description
 QmidiCtl is a MIDI remote controller application that sends MIDI
@@ -22,7 +27,7 @@ data over the network, using UDP/IP multicast.
 %autopatch -p1
 
 %build
-%configure2_5x \
+%configure \
 	--enable-debug
 
 %make_build
@@ -35,7 +40,7 @@ desktop-file-install \
   --remove-key="X-Osso-Type" \
   --remove-key="Version" \
   --remove-key="Encoding" \
-  --add-category="X-Mageia-CrossDesktop" \
+  --add-category="X-OpenMandriva-CrossDesktop" \
   --dir %{buildroot}%{_datadir}/applications \
 %{buildroot}%{_datadir}/applications/%{name}.desktop
 
