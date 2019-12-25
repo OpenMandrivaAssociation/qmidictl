@@ -47,7 +47,6 @@ desktop-file-install \
 %doc AUTHORS ChangeLog README TODO
 %{_bindir}/%{name}
 %{_datadir}/applications/%{name}.desktop
-%{_datadir}/aapplications/hildon/qmidictl.desktop
 %{_datadir}/metainfo/%{name}.appdata.xml
-%{_iconsdir}/hicolor/26x26/hildon/qmidictl.png
+%{_iconsdir}/hicolor/*/hildon/qmidictl.png
 %{_mandir}/man1/%{name}*.1*
