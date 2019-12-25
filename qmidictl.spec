@@ -48,5 +48,5 @@ desktop-file-install \
 %{_bindir}/%{name}
 %{_datadir}/applications/%{name}.desktop
 %{_datadir}/metainfo/%{name}.appdata.xml
-%{_iconsdir}/*/*/*/hildon/%{name}.png
+#{_iconsdir}/*/*/*/hildon/%{name}.png
 %{_mandir}/man1/%{name}*.1*
