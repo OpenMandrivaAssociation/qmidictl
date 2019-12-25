@@ -41,12 +41,12 @@ desktop-file-install \
   --remove-key="Encoding" \
   --add-category="X-OpenMandriva-CrossDesktop" \
   --dir %{buildroot}%{_datadir}/applications \
-%{buildroot}%{_datadir}/applications/%{name}.desktop
+%{buildroot}%{_datadir}/applications/hildon/%{name}.desktop
 
 %files
 %doc AUTHORS ChangeLog README TODO
 %{_bindir}/%{name}
 %{_datadir}/applications/%{name}.desktop
 %{_datadir}/metainfo/%{name}.appdata.xml
-%{_iconsdir}/*/*/*/%{name}.png
+%{_iconsdir}/*/*/*/hildon/%{name}.png
 %{_mandir}/man1/%{name}*.1*
