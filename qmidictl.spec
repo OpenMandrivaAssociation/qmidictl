@@ -8,7 +8,6 @@ URL:		https://qmidictl.sourceforge.io/
 Source0:	http://downloads.sourceforge.net/qmidictl/%{name}-%{version}.tar.gz
 
 BuildRequires:	desktop-file-utils
-BuildRequires:	qttools5
 BuildRequires:	pkgconfig(Qt5Core)
 BuildRequires:	pkgconfig(Qt5Gui)
 BuildRequires:	pkgconfig(Qt5Widgets)
