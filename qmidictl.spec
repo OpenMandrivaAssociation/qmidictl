@@ -49,9 +49,9 @@ desktop-file-install \
 %doc ChangeLog README
 %{_bindir}/%{name}
 %{_datadir}/applications/org.rncbc.qmidictl.desktop
-%{_datadir}/applications/qmidictl.desktop
-%{_datadir}/metainfo/%{name}.appdata.xml
-%{_iconsdir}/hicolor/*/hildon/qmidictl.png
-%{_iconsdir}/hicolor/scalable/apps/qmidictl.svg
+#{_datadir}/applications/qmidictl.desktop
+#{_datadir}/metainfo/%{name}.appdata.xml
+#{_iconsdir}/hicolor/*/hildon/qmidictl.png
+#{_iconsdir}/hicolor/scalable/apps/qmidictl.svg
 %{_mandir}/man1/%{name}*.1*
 %{_mandir}/*/man1/qmidictl.1.*
