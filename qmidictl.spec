@@ -43,12 +43,12 @@ desktop-file-install \
   --remove-key="Encoding" \
   --add-category="X-OpenMandriva-CrossDesktop" \
   --dir %{buildroot}%{_datadir}/applications \
-%{buildroot}%{_datadir}/applications/hildon/%{name}.desktop
+%{buildroot}%{_datadir}/applications/hildon/org.rncbc.qmidictl.desktop
 
 %files
-%doc AUTHORS ChangeLog README TODO
+%doc ChangeLog README
 %{_bindir}/%{name}
-%{_datadir}/applications/hildon/qmidictl.desktop
+%{_datadir}/applications/hildon/org.rncbc.qmidictl.desktop
 %{_datadir}/applications/qmidictl.desktop
 %{_datadir}/metainfo/%{name}.appdata.xml
 %{_iconsdir}/hicolor/*/hildon/qmidictl.png
