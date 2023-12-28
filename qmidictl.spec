@@ -1,38 +1,40 @@
 Name:		qmidictl
-Version:	0.9.4
+Version:	0.9.11
 Release:	1
 Summary:	A MIDI Remote Controller via UDP/IP Multicast
 License:	GPLv2+
 Group:		Sound/Utilities
 URL:		https://qmidictl.sourceforge.io/
-Source0:	http://downloads.sourceforge.net/qmidictl/%{name}-%{version}.tar.gz
+Source0:	https://downloads.sourceforge.net/qmidictl/%{name}-%{version}.tar.gz
 
 BuildRequires:	desktop-file-utils
-BuildRequires:	pkgconfig(Qt5Core)
-BuildRequires:	pkgconfig(Qt5Gui)
-BuildRequires:	pkgconfig(Qt5Widgets)
-BuildRequires:	qt5-qttools
-BuildRequires:  qt5-qtchooser
-BuildRequires:	qt5-linguist
-BuildRequires:	qt5-linguist-tools
-BuildRequires:  qmake5
+BuildRequires:	cmake
+BuildRequires:	cmake(Qt6)
+BuildRequires:	qmake-qt6
+BuildRequires:	cmake(Qt6LinguistTools)
+BuildRequires:	cmake(Qt6Core)
+BuildRequires:  cmake(Qt6Svg)
+BuildRequires:  cmake(Qt6Network)
+BuildRequires:	cmake(Qt6Widgets)
+BuildRequires:	qt6-qtbase-theme-gtk3
+BuildRequires:  pkgconfig(xkbcommon-x11)
+BuildRequires:  pkgconfig(vulkan)
 
 %description
 QmidiCtl is a MIDI remote controller application that sends MIDI
 data over the network, using UDP/IP multicast.
 
 %prep
-%setup -q
-%autopatch -p1
+%autosetup -p1
 
 %build
-%configure \
-	--enable-debug
+%cmake \
+        -DCONFIG_QT6=yes
 
 %make_build
 
 %install
-%make_install
+%make_install -C build
 
 #menu
 desktop-file-install \
@@ -41,15 +43,14 @@ desktop-file-install \
   --remove-key="Encoding" \
   --add-category="X-OpenMandriva-CrossDesktop" \
   --dir %{buildroot}%{_datadir}/applications \
-%{buildroot}%{_datadir}/applications/hildon/%{name}.desktop
+%{buildroot}%{_datadir}/applications/org.rncbc.qmidictl.desktop
 
 %files
-%doc AUTHORS ChangeLog README TODO
+%doc ChangeLog README
 %{_bindir}/%{name}
-%{_datadir}/applications/hildon/qmidictl.desktop
-%{_datadir}/applications/qmidictl.desktop
-%{_datadir}/metainfo/%{name}.appdata.xml
-%{_iconsdir}/hicolor/*/hildon/qmidictl.png
-%{_iconsdir}/hicolor/scalable/apps/qmidictl.svg
+%{_datadir}/applications/org.rncbc.qmidictl.desktop
+%{_datadir}/metainfo/org.rncbc.qmidictl.metainfo.xml
+%{_iconsdir}/hicolor/32x32/apps/org.rncbc.qmidictl.png
+%{_iconsdir}/hicolor/scalable/apps/org.rncbc.qmidictl.svg
 %{_mandir}/man1/%{name}*.1*
 %{_mandir}/*/man1/qmidictl.1.*
