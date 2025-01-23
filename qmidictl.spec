@@ -1,5 +1,5 @@
 Name:		qmidictl
-Version:	0.9.11
+Version:	1.0.1
 Release:	1
 Summary:	A MIDI Remote Controller via UDP/IP Multicast
 License:	GPLv2+
