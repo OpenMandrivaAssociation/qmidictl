@@ -6,6 +6,7 @@ License:	GPLv2+
 Group:	Sound
 Url:	https://qmidictl.sourceforge.io/
 Source0:	https://downloads.sourceforge.net/qmidictl/%{name}-%{version}.tar.gz
+BuildRequires:	make
 BuildRequires:	desktop-file-utils
 BuildRequires:	cmake
 BuildRequires:	qmake-qt6
@@ -39,12 +40,10 @@ the network, using UDP/IP multicast.
 %prep
 %autosetup -p1
 
-
 %build
 %cmake -DCONFIG_QT6=yes
 
 %make_build
-
 
 %install
 %make_install -C build
